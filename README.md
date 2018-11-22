@@ -7,3 +7,5 @@ You will need to prep your data via an R script where you then call the jags mod
 `jagsTimeHomoModel <- jags.model('scripts/jagsModelFile_TimeHomo_general.jags', data=dat, n.chains = 4, n.adapt = 1000)`
 
 `parsTimeHomoModel <- coda.samples(model=jagsTimeHomoModel,variable.names=c('pInfInit','pUninf2Inf','pInf2Inf','crp'),n.iter=10000)`
+
+(and similarly for the bsic time heterogeneous and the mixed time homogeneous models)
