@@ -2,8 +2,6 @@ library(rjags)
 library(coda)
 
 rm(list=ls())
-#setwd("~/../work/MLW_LSTM/GordonMelita_StatsSupportAngeziwe")
-#setwd("~/work/GordonMelita_StatsSupportAngeziwe")
 
 outDir<-paste(sep="/","output",Sys.Date())
 if(!dir.exists(outDir)){dir.create(outDir)}
@@ -239,16 +237,6 @@ print(summary(parsTimeHomoMixedModel))
 pdf(paste(sep="/",outDir,"jags_AngeData_general_TimeHomoMixedModel_MCMCdiagnostics_new.pdf"))
 plot(parsTimeHomoMixedModel)
 dev.off()
-
-
-##--------------------
-## Bayesian model comparison: compute model evicences using nested sampling to compute Bayes factors
-##
-
-
-##--------------------
-## posterior predictive checks
-##
 
 
 ##--------------------
