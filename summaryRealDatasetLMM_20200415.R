@@ -17,8 +17,6 @@ rm(list=ls())
 # if(!is.na(args[7])){trueSpec<-as.numeric(unlist(strsplit(split=",",args[7])))}else{trueSpec<-NA}
 # if(!is.na(args[8])){outPrefixAdd<-args[8]}else{outPrefixAdd<-""}
 
-wd<-"/Users/marc/work/MLW_LSTM/GordonMelita_StatsSupportAngeziwe/"
-setwd(wd)
 rdataJagsFile<-"output/ToBeUsedForPaper/Real/jags_AngeData_general_TimeHomoModel.RData"
 objName<-"parsTimeHomoModel"
 plotLims<-NA
@@ -117,25 +115,10 @@ for(i in 1:length(cols)){colsDarker[i]<-darkenCol(cols[i],factor=1.5)}
 
 if(is.na(plotLims[1])){plotLims<-c(0.35,1,0.8,1)}
 
-#png(paste(sep="",outPrefix,"_sensVSspec.png"),width=10,height=8,units="in",res=450)
-#png(paste(sep="",outPrefix,"_sensVSspec.png"),width=12,height=5,units="in",res=450)
-#pdf(paste(sep="",outPrefix,"_sensVSspec.pdf"),width=12,height=6)
 png(paste(sep="",outPrefix,"_sensVSspec.png"),width=12,height=6,units="in",res=600)
-#plot(xlim=plotLims[1:2],ylim=plotLims[3:4],main="",xlab="sensitivity",ylab="specificity",0:1,0:1,col=cols,pch=20,type="n")
 plot(xlim=plotLims[1:2],ylim=plotLims[3:4],main="",xlab="sensitivity",ylab="specificity",0:1,0:1,col=cols,pch=20,type="n",asp=1)
 addGrid()
 par(xpd=T)
-
-#colList<-data.frame(r=NA,g=NA,b=NA)
-#for(k in 1:nTests){
-#    colList[,c("r","g","b")]<-as.vector(col2rgb(colsDarker[k]))
-#    points(testsSens[[k]],testsSpec[[k]],pch=20,cex=0.2,col=rgb(red=colList$r,green=colList$g,blue=colList$b,alpha=10,maxColorValue=255))
-#}
-#for(k in 1:nTests){
-#    colTmp<-colorRampPalette(c("white",cols[k],colsDarker[k]))(200)
-#    colTmp<-addAlpha(colTmp,ALPHA=0.25)
-#    image(testsDens[[k]],col=colTmp,add=T)
-#}
 
 for(k in 1:nTests){
   paletteCust<-function(n){
